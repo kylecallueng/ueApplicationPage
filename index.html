@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>UE Online Application for Admissions</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+
+        <!-- Bootstrap CSS v5.2.1 -->
+        <link 
+            rel="stylesheet" 
+            href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" 
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
+            crossorigin="anonymous"
+        >
+        <style>
+            .error {
+                color: red;
+                font-size: 0.9em;
+            }
+            .input-error {
+                border: 1px solid red;
+            }
+            body{
+                background-image: url(https://www.ue.edu.ph/mla/wp-content/uploads/2023/04/uesocialogp.png);
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-position: center;
+                background-size: cover;    
+            }
+            #appForm{
+                background-color: rgba(255, 255, 255, 0.95);
+            }
+        </style>
+    </head>
+
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light sticky-top bg-secondary">
+            <a class="navbar-brand" href="index.html">
+                <img src="https://upload.wikimedia.org/wikipedia/en/9/9f/University_of_the_East_seal.png" width="50" height="50" alt="ue">&nbsp; <b><span class="text-white">University of the East</span></b>
+            </a>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Courses</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Assessment Dates</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Admissions</a>
+                </li>
+            </ul>
+        </nav>
+        
+        <div class="container p-3 my-3 border border-dark rounded" id="appForm">
+            <p class="lead font-weight-bold text-center text-danger" id="welcome">Welcome to the University of the East!</p>
+            <p class="lead font-weight-bold text-center">Thank you for your interest on being a <span style="color: #ff0000">Warrior Student!</span> Cheers and we hope to welcome you to where your tomorrow should begin: in the East-<span style="color: #ff0000">The University of the East!</span></p><hr>
+            <div class="row">
+                <div class="col-sm-6">
+                    <form class="form-horizontal">
+                        <b>Step 1: Application</b><br>
+                        <div class="form-group row ">
+                            <label class="col-sm-3 control-label" for="appType">Apply For: </label>
+                            <div class="col-sm-9">
+                                <select id="appType" name="appType" class="form-control">
+                                    <option selected>Choose...</option>
+                                    <option value="college">College</option>
+                                    <option value="shs">Senior High School</option>
+                                    <option value="jhs">Junior High School (Grade 7-10)</option>
+                                    <option value="elem">Elementary (Grade 1-6)</option>
+                                    <option value="kinder">Kinder</option>
+                                    <option disabled class="separator">-------------------------------------------&nbsp;&nbsp;</option>
+                                    <option value="gs">Graduate School</option>
+                                    <option value="gsdent">Graduate School Dentistry</option>
+                                </select>
+                                <span id="appTypeError" class="error"></span>
+                            </div>
+                        </div>
+                        <div class="form-group align-items-end">
+                            <input id="apply" type="button" class="btn btn-danger" value="Apply Now" onclick="validateAppType(event)">
+                        </div>
+
+                        <div class="container border border-dark p-3">
+                            <p>To modify your application form and upload your proof of payment, please enter your reference number and last name below: </p>
+                            <div class="form-group row">
+                                <label class="col-sm-4 control-label" for="refNo">Reference Number: </label>
+                                <div class = "col-sm-8">
+                                    <input type="text" class="form-control" id="refNo" name="refNo" placeholder="Reference No.">
+                                    <span style="font-size: 80%"><a href="#">Forgot my reference number</a></span>
+                                </div>  
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-4 control-label" for="refNo">Last Name: </label>
+                                <div class = "col-sm-8">
+                                    <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name">
+                                </div>  
+                            </div>
+                            <div class="form-group row m-1">
+                                <input id="apply" type="button" class="btn btn-danger col-sm-5 m-1" value="Edit">
+                                <input id="apply" type="button" class="btn btn-success col-sm-5 m-1" value="Reprint">
+                            </div>
+                            <div class="form-group row m-1">
+                                <input id="apply" type="button" class="btn btn-warning col-sm-5 m-1" value="Upload Proof of Payment">
+                                <input id="apply" type="button" class="btn btn-info col-sm-5 m-1" value="Set Exam Date">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-sm-6">
+                    <b>Step 2: Enrollment</b><br>
+                    <b>Academic Credentials and other Requirements</b><br>
+                    <ul>
+                        <li>
+                            <a href="#">Update Personal Information</a>
+                        </li>
+                        <li>
+                            <a href="#">Submission of Enrollment Credentials</a>
+                        </li>
+                    </ul>
+                    <b>Enrollment Status</b><br>
+                    <ul>
+                        <li>
+                            <a href="#">View Pre-Enrollment Form (PEF)</a>
+                        </li>
+                        <li>
+                            Check your email for more info
+                        </li>
+                    </ul>
+
+                    <b>Step 3: Payment of Fees</b><br>
+                    <ul>
+                        <li>
+                            <a href="#">Payment Procedures</a>
+                            <ul style="list-style-type:circle;">
+                                <li><a href="#">PNB</a> Over the Counter</li>
+                                <li><a href="#">GCash</a>, Bancnet ATM, Online Banking</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Download Registration Form (.pdf)</a><br>
+                            <span style="font-size: 80%">(Within three working days after sending your proof of payment to the <a href="#">UE Finance Department</a>)</span>
+                        </li>
+                    </ul>
+
+                    <a href="#"><b>Step 4: UE Student Portal Access</b></a><br>
+                </div>  
+            </div>
+            <hr>
+            <p class="lead font-weight-bold text-center m-1"><a href="#">UE Privacy Policy</a></p>
+        </div>
+        
+        <script>
+            
+            
+            document.getElementById("apply").onclick = function() {
+                clearErrors();
+                var selectedOption = document.getElementById("appType").value;
+                if (selectedOption === "college") {
+                    window.location.href = "ueadmissionpages.html";
+                } else {
+                    alert("Please select College to UE Admission Pages");
+                    showError("appTypeError", "Please choose an application type from the above drop-down list.");
+                }
+            }
+            
+            function showError(elementId, message){
+                errorElement = document.getElementById(elementId);
+                errorElement.innerText = message;
+                inputElement = document.getElementById(elementId.replace("Error", ""));
+                inputElement.classList.add("input-error");
+            }
+
+            function clearErrors(){
+                document.querySelectorAll(".error").forEach(el => el.innerText = "");
+                document.querySelectorAll(".input-error").forEach(el => el.classList.remove("input-error"));
+            }
+
+        </script>
+    </body>
+</html>
